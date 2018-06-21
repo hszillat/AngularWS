@@ -1,3 +1,5 @@
 <h1>User works {{name}}</h1>
 <pta-user-avatar></pta-user-avatar>
-<button (click)="onClick()">say hello</button>
+<!-- <pta-user-avatar></pta-user-avatar> -->
+<button #btn (click)="onClick()">say hello</button>
+<ng-content></ng-content>
