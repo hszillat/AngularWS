@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'pta-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
+})
+export class UserComponent {
+  name = 'Holger Szillat';
+  onClick() {
+    this.name = 'angular rocks';
+  }
+}

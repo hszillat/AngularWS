@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonUiModule } from './common-ui/common-ui.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { CommonUiModule } from './common-ui/common-ui.module';
   imports: [
     BrowserModule,
     CommonUiModule,
+    UserModule,
     AppRoutingModule
   ],
   providers: [],
