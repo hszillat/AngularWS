@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  OnDestroy
-} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'pta-countdown',
@@ -18,27 +12,36 @@ export class CountdownComponent implements OnInit, OnDestroy {
   readonly initialWidth = 100;
   width = this.initialWidth;
 
-  @ViewChild('balken') balken: ElementRef<HTMLDivElement>;
-
   constructor() {}
 
   ngOnInit() {
+    this.startInterval();
+  }
+
+  ngOnDestroy(): void {
+    this.stopInterval();
+  }
+
+  reset() {
+    this.stopInterval();
+
+    this.counter = 0;
+
+    this.startInterval();
+  }
+
+  private startInterval() {
+    this.stopInterval();
+
     this.intervalId = window.setInterval(() => {
       this.counter += 10;
       this.width = this.initialWidth - this.counter;
       console.log(this.counter);
 
       if (this.counter > this.initialWidth) {
-        this.balken.nativeElement.style.width = '100%';
-        this.balken.nativeElement.style.backgroundColor = 'red';
-
         this.stopInterval();
       }
     }, 1000);
-  }
-
-  ngOnDestroy(): void {
-    this.stopInterval();
   }
 
   private stopInterval() {
