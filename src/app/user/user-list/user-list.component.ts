@@ -21,6 +21,14 @@ export class UserListComponent implements OnInit {
     this.selectedUser = user;
   }
 
+  addUser() {
+    this.userList.push({
+      firstname: 'Firstname_' + Math.floor(Math.random() * 100),
+      lastname: 'Lastname_' + Math.floor(Math.random() * 100),
+      age: Math.floor(Math.random() * 100)
+    });
+  }
+
   deleteUser(user: User) {
     const ind = this.userList.indexOf(user);
     if (ind !== -1) {
