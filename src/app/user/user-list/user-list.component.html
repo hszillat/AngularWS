@@ -5,4 +5,5 @@
 <pta-user-name *ngFor="let user of userList" [user]="user" [class.selected]="selectedUser === user" (userSelection)="setAsSelected($event)"
   (deleteUser)="deleteUser($event)"></pta-user-name>
 
+<button (click)="addUser()">Add User</button>
 <button (click)="reset()">Reset</button>
