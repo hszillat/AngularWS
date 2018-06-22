@@ -17,7 +17,7 @@ export class UserListComponent implements OnInit {
     console.log(this.userList);
   }
 
-  setAsSelected($event: User) {
-    this.selectedUser = $event;
+  setAsSelected(user: User) {
+    this.selectedUser = user;
   }
 }

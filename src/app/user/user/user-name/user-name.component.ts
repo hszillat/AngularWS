@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener
+} from '@angular/core';
 import { User } from '../../user';
 
 @Component({
@@ -15,7 +22,8 @@ export class UserNameComponent implements OnInit {
 
   ngOnInit() {}
 
-  selectThisUser() {
+  @HostListener('click')
+  private selectThisUser() {
     this.userSelection.emit(this.user);
   }
 }

@@ -2,5 +2,5 @@
 
 <h2>Selected: {{selectedUser?.firstname}} {{selectedUser?.lastname}}</h2>
 
-<pta-user-name [user]="userList[0]" (userSelection)="setAsSelected($event)"></pta-user-name>
-<pta-user-name [user]="userList[1]" (userSelection)="setAsSelected($event)"></pta-user-name>
+<pta-user-name [user]="userList[0]" [class.selected]="selectedUser === userList[0]" (userSelection)="setAsSelected($event)"></pta-user-name>
+<pta-user-name [user]="userList[1]" [class.selected]="selectedUser === userList[1]" (userSelection)="setAsSelected($event)"></pta-user-name>
