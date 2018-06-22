@@ -7,4 +7,10 @@
   &.selected {
     color: red;
   }
+  &.even {
+    background-color: gray
+  }
+  &.odd {
+    background-color: lightgray;
+  }
 }

@@ -1,9 +1,12 @@
 <h1>User List</h1>
 
-<h2>Selected: {{selectedUser?.firstname}} {{selectedUser?.lastname}}</h2>
+<h2 *ngIf="selectedUser; else: notSelected">Selected: {{selectedUser.firstname}} {{selectedUser.lastname}}</h2>
+<ng-template #notSelected>
+  <h2>No user selected!</h2>
+</ng-template>
 
-<pta-user-name *ngFor="let user of userList" [user]="user" [class.selected]="selectedUser === user" (userSelection)="setAsSelected($event)"
-  (deleteUser)="deleteUser($event)"></pta-user-name>
+<pta-user-name *ngFor="let user of userList; even as e; odd as o" [user]="user" [ngClass]="{even: e, odd: o, selected: selectedUser === user}"
+  (userSelection)="setAsSelected($event)" (deleteUser)="deleteUser($event)"></pta-user-name>
 
 <button (click)="addUser()">Add User</button>
 <button (click)="reset()">Reset</button>
