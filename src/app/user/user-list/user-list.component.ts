@@ -9,7 +9,7 @@ import { User } from '../user';
 export class UserListComponent implements OnInit {
   @Input() userList: User[];
 
-  selectedUser: User;
+  selectedUser: User | undefined = undefined;
 
   constructor() {}
 
@@ -19,5 +19,24 @@ export class UserListComponent implements OnInit {
 
   setAsSelected(user: User) {
     this.selectedUser = user;
+  }
+
+  deleteUser(user: User) {
+    const ind = this.userList.indexOf(user);
+    if (ind !== -1) {
+      this.userList.splice(ind, 1);
+      if (this.selectedUser !== undefined) {
+        this.selectedUser = undefined;
+      }
+    }
+  }
+
+  reset() {
+    this.userList = [
+      { firstname: 'Holger', lastname: 'Szillat', age: 42 },
+      { firstname: 'Lukas', lastname: 'Szillat', age: 10 }
+    ];
+
+    this.selectedUser = undefined;
   }
 }

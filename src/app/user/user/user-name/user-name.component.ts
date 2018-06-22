@@ -18,12 +18,18 @@ export class UserNameComponent implements OnInit {
 
   @Output() userSelection: EventEmitter<User> = new EventEmitter<User>();
 
+  @Output() deleteUser: EventEmitter<User> = new EventEmitter<User>();
+
   constructor() {}
 
   ngOnInit() {}
 
-  @HostListener('click')
-  private selectThisUser() {
-    this.userSelection.emit(this.user);
+  @HostListener('click', ['$event'])
+  private selectThisUser($event: MouseEvent) {
+    if ($event.target instanceof HTMLButtonElement) {
+      this.deleteUser.emit(this.user);
+    } else {
+      this.userSelection.emit(this.user);
+    }
   }
 }
