@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../../user';
 
 @Component({
   selector: 'pta-user-name',
@@ -6,9 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./user-name.component.scss']
 })
 export class UserNameComponent implements OnInit {
-  @Input() firstname: string;
+  @Input() user: User;
+
+  @Output() userSelection: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  selectThisUser() {
+    this.userSelection.emit(this.user);
+  }
 }
