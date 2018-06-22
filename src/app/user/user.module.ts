@@ -8,6 +8,7 @@ import { UserListComponent } from './user-list/user-list.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [UserComponent, UserAvatarComponent, UserNameComponent, UserListComponent],
+  providers: [],
   exports: [UserComponent, UserNameComponent, UserListComponent]
 })
 export class UserModule {

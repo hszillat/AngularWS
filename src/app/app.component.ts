@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { Component } from '@angular/core';
 import { User } from './user/user';
 import { of, Observable, fromEvent, Subject } from 'rxjs';
@@ -17,11 +18,11 @@ export class AppComponent {
     { firstname: 'Lukas', lastname: 'Szillat', age: 10 }
   ];
 
-  constructor() {
+  constructor(public $userService: UserService) {
     // this.initFromEvent();
     // this.initOf();
     // this.initCreate();
-    this.initHot();
+    // this.initHot();
   }
 
   private initOf() {
